@@ -59,3 +59,68 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+# API Documentation
+
+Base URL: `http://localhost:3000`
+
+## 1. Create a Comic Book
+- **Method**: POST
+- **URL**: `http://localhost:3000/api/comics`
+- **Body** (raw JSON):
+  ```json
+  {
+    "bookName": "Spider-Man: New Beginnings",
+    "authorName": "Peter Parker",
+    "yearOfPublication": 2023,
+    "price": 19.99,
+    "discount": 0,
+    "numberOfPages": 120,
+    "condition": "new",
+    "description": "A fresh start for your friendly neighborhood Spider-Man!"
+  }
+  ```
+
+## 2. Get All Comic Books
+- **Method**: GET
+- **URL**: `http://localhost:3000/api/comics`
+- **Query Parameters**:
+  - `page`: Page number (default: 1)
+  - `limit`: Number of items per page (default: 10)
+  - `sort`: Field and order to sort by (e.g., `price:desc`, `yearOfPublication:asc`)
+  - Any field name for filtering (e.g., `condition=new`, `authorName=Stan Lee`)
+
+Examples:
+- `http://localhost:3000/api/comics?page=1&limit=5`
+- `http://localhost:3000/api/comics?sort=price:desc&condition=new`
+- `http://localhost:3000/api/comics?authorName=Stan Lee&yearOfPublication=2023`
+
+## 3. Get a Single Comic Book
+- **Method**: GET
+- **URL**: `http://localhost:3000/api/comics/:id`
+
+Example:
+- `http://localhost:3000/api/comics/60f1a5b9e6c1234567890123`
+
+## 4. Update a Comic Book
+- **Method**: PUT
+- **URL**: `http://localhost:3000/api/comics/:id`
+- **Body** (raw JSON, include only fields to be updated):
+  ```json
+  {
+    "price": 24.99,
+    "discount": 5
+  }
+  ```
+
+Example:
+- `http://localhost:3000/api/comics/60f1a5b9e6c1234567890123`
+
+## 5. Delete a Comic Book
+- **Method**: DELETE
+- **URL**: `http://localhost:3000/api/comics/:id`
+
+Example:
+- `http://localhost:3000/api/comics/60f1a5b9e6c1234567890123`
+
+Note: Replace `:id` in the URLs with the actual ID of a comic book in your database.

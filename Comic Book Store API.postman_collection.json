@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "23018286-7c2f-4926-8184-71c41c34663f",
+		"name": "Comic Book Store API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39044982"
+	},
+	"item": [
+		{
+			"name": "Create Comic Book",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bookName\": \"Spider-Man: New Beginnings\",\r\n    \"authorName\": \"Peter Parker\",\r\n    \"yearOfPublication\": 2023,\r\n    \"price\": 19.99,\r\n    \"discount\": 0,\r\n    \"numberOfPages\": 120,\r\n    \"condition\": \"new\",\r\n    \"description\": \"A fresh start for your friendly neighborhood Spider-Man!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/comics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comics"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Comic Books",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/comics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comics"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "limit",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comic Books by Page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/comics?page=1&limit=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comics"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comic Books in Sorting Order",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/comics?sort=price:asc&condition=new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comics"
+					],
+					"query": [
+						{
+							"key": "sort",
+							"value": "price:asc"
+						},
+						{
+							"key": "condition",
+							"value": "new"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Comic Books with Filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/comics?authorName=A Author&yearOfPublication=2024",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comics"
+					],
+					"query": [
+						{
+							"key": "authorName",
+							"value": "A Author"
+						},
+						{
+							"key": "yearOfPublication",
+							"value": "2024"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Comic Book",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bookName\": \"Spider-Man: 2\",\r\n    \"authorName\": \"Peter Parker\",\r\n    \"yearOfPublication\": 2024,\r\n    \"price\": 20.99\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/comics/670f51f9e08b846ab92a69a3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comics",
+						"670f51f9e08b846ab92a69a3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Single Comic Book",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/comics/670f4db9683465a3de07d2df",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comics",
+						"670f4db9683465a3de07d2df"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Comic Book",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/comics/670f4db9683465a3de07d2df",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comics",
+						"670f4db9683465a3de07d2df"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
